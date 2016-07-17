@@ -1,6 +1,3 @@
----
-output: html_document
----
 <strong>READ FIRST</strong><br>
 
 <strong>KLUDGES</strong><br>
