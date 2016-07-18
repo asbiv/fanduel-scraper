@@ -1,21 +1,20 @@
-<strong>READ FIRST</strong><br>
+<h2><strong>READ FIRST</strong></h2><br>
 
 <strong>KLUDGES</strong><br>
 1. Viewport - Currently RSelenium does not include a function to adjust viewport size. As such, if you are running a smaller browser window you will need to manually decrease (cmd-) the content size in the viewport to 50% or so. Do this when the window opens. Or use NoSquint Plus plugin with a Firefox user account.<br>
 2. Versions - Requires Firefox 47.0.1+ or <= 45.x.x. Includes Selenum Server JAR 2.53.1<br>
-3. Slow - Currently very slow, ~ 10 minute build time for 13 page example<br>
+3. Slow - Currently very slow, ~ 20 minute build time<br>
 
 <strong>PREPARATION</strong><br>
 1. CHROME WEBDRIVER (None required for Firefox)
 Included version 2.22
-https://sites.google.com/a/chromium.org/chromedriver/downloads
+https://sites.google.com/a/chromium.org/chromedriver/downloads<br>
 2. SELENIUM SERVER JAR<br>
 Included version 2.53.1
 Make sure to be running a 64-bit version of Java
-http://www.seleniumhq.org/download/
+http://www.seleniumhq.org/download/<br>
 3. COMMAND FILE<br>
-Included executes from within the batch.command directory. The batch.command script is accessed from R. Note that permissions may have to be adjusted to run the script from R.<br>
-Note the batch-ff command executes for Firefox.
+Included executes from within the batch.command directory. The batch.command script is accessed from R. Note that permissions may have to be adjusted to run the script from R. Note the batch-ff command executes for Firefox.<br>
 
 <strong>RUNNING THE R SCRIPT</strong><br>
 1. Prep and run batch.command to launch selenium standalone server. Sys.sleep ensures the server gets running before R tries to open the remote driver.<br>
