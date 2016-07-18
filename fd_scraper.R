@@ -5,6 +5,8 @@ library(stringr)
 library(stringi) #For stri_extract_first (last, etc...)
 
 #NOTE: WD should default to the root fanduel_scraper directory
+#NOTE: Highlights - Time with highlights 11.53586 mins, 
+# but need them to ensure DOM is good to go
 
 #-------------------#
 # SET UP AND LOG ON #
@@ -138,6 +140,10 @@ scrapePage <- function(){
   return(dataset)
 } #Close scrapePage
 
+#CREATE THE DATASET
+dataset <- data.frame()
+dataset <- rbind(dataset, scrapePage())
+
 #FIND THE NUMBER OF PAGES
 elemPages <- remDr$findElement(using='css selector', '.pagination-status')
 elemPages$highlightElement()
@@ -145,11 +151,8 @@ pagesText <- elemPages$getElementAttribute("outerHTML") %>%
   str_extract("((of) [0-9][0-9]*[0-9]*)") %>% str_extract("[0-9][0-9]*[0-9]*") %>%
   as.numeric()
 
-#CREATE THE DATASET
-dataset <- data.frame()
-dataset <- rbind(dataset, scrapePage())
-
-for (page in 1:pagesText){
+#ITERATE OVER PAGES
+for (page in 1:(pagesText-1)){
   if (page < pagesText){
     #GO TO THE NEXT PAGE
     elemNext <- remDr$findElement(using = 'css selector', 'button.paging-control:nth-child(4)')
@@ -170,5 +173,3 @@ remDr$navigate("http://localhost:4444/selenium-server/driver/?cmd=shutDownSeleni
 rm(list=setdiff(ls(), c("dataset", "p")))
 Sys.time() - p #One page including startup is 1.38 mins
 rm(p)
-
-#Time with highlights 11.53586 mins.1152 obs
