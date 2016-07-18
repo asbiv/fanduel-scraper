@@ -3,7 +3,7 @@
 <strong>KLUDGES</strong><br>
 1. Viewport - Currently RSelenium does not include a function to adjust viewport size. As such, if you are running a smaller browser window you will need to manually decrease (cmd-) the content size in the viewport to 50% or so. Do this when the window opens. Or use NoSquint Plus plugin with a Firefox user account.<br>
 2. Versions - Requires Firefox 47.0.1+ or <= 45.x.x. Includes Selenum Server JAR 2.53.1<br>
-3. Slow - Currently very slow, ~ 20 minute build time<br>
+3. Slow - Currently very slow, ~ 10 minute build time for 13 page example<br>
 
 <strong>PREPARATION</strong><br>
 1. CHROME WEBDRIVER (None required for Firefox)
