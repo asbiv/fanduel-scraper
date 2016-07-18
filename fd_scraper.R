@@ -147,21 +147,18 @@ pagesText <- elemPages$getElementAttribute("outerHTML") %>%
 
 #CREATE THE DATASET
 dataset <- data.frame()
-
-#x=0
-#for (page in 1:pagesText){x = x+2}
+dataset <- rbind(dataset, scrapePage())
 
 for (page in 1:pagesText){
-  dataset <- rbind(dataset, scrapePage())
   if (page < pagesText){
     #GO TO THE NEXT PAGE
-    elemNext <- remDr$findElement(using = 'css selector', "button.paging-control:nth-child(4)")
+    elemNext <- remDr$findElement(using = 'css selector', 'button.paging-control:nth-child(4)')
     elemNext$highlightElement()
     elemNext$clickElement()
     dataset <- rbind(dataset, scrapePage())
   }else{
     return(dataset)
-    }
+  }
 }
 
 #Shut down the session
@@ -173,3 +170,5 @@ remDr$navigate("http://localhost:4444/selenium-server/driver/?cmd=shutDownSeleni
 rm(list=setdiff(ls(), c("dataset", "p")))
 Sys.time() - p #One page including startup is 1.38 mins
 rm(p)
+
+#Time with highlights 11.53586 mins.1152 obs
