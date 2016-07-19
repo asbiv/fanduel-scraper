@@ -1,4 +1,4 @@
-<h2><strong>READ FIRST</strong></h2><br>
+<h2><strong>READ FIRST</strong></h2>
 
 <strong>KLUDGES</strong><br>
 1. Viewport - Currently RSelenium does not include a function to adjust viewport size. As such, if you are running a smaller browser window you will need to manually decrease (cmd-) the content size in the viewport to 50% or so. Do this when the window opens. Or use NoSquint Plus plugin with a Firefox user account.<br>
